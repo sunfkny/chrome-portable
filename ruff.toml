@@ -1,0 +1,13 @@
+line-length = 160
+target-version = "py310"
+
+[lint]
+extend-select = [
+    "A",    # https://docs.astral.sh/ruff/rules/#flake8-builtins-a
+    "B006", #https://docs.astral.sh/ruff/rules/mutable-argument-default/
+    "I",    #https://docs.astral.sh/ruff/rules/#isort-i
+]
+ignore = [
+    "F401", # https://docs.astral.sh/ruff/rules/unused-import/
+    "E402", # https://docs.astral.sh/ruff/rules/module-import-not-at-top-of-file/
+]
