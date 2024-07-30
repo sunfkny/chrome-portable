@@ -4,7 +4,7 @@ import streamlit as st
 
 
 def select_versions(label_major: str, label_version: str, versions: Iterable[str]):
-    major_versions = sorted(set(int(version.split(".")[0]) for version in versions))
+    major_versions = sorted(set(int(version.split(".")[0]) for version in versions), reverse=True)
     selected_major_version = st.selectbox(
         label_major,
         options=major_versions,
@@ -12,6 +12,6 @@ def select_versions(label_major: str, label_version: str, versions: Iterable[str
     if selected_major_version:
         selected_version = st.selectbox(
             label_version,
-            options=sorted(version for version in versions if version.startswith(f"{selected_major_version}.")),
+            options=sorted((version for version in versions if version.startswith(f"{selected_major_version}.")), reverse=True),
         )
         return selected_version
